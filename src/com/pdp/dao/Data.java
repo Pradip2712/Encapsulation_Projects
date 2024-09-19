@@ -42,7 +42,7 @@ public class Data {
 
 	// it is updatedData() for update some data
 	public static boolean updateData(int id) {
-
+		int check = 0;
 		for (int i = 0; i < size; i++) {
 			if (parr[i].getId() == id) {
 				System.out.println("ID is matched... ");
@@ -54,17 +54,18 @@ public class Data {
 				System.out.print("Enter new product price : ");
 				double price = sc.nextDouble();
 
-//				Product updatedProduct = new Product(nid, name, price);
 
 				parr[i].setId(nid);
 				parr[i].setCname(name);
 				parr[i].setPrice(price);
 
 				System.out.println("updated succesfully...");
+				check++;
 				return true;
-			} else {
-				System.out.println("ID is not found : ");
 			}
+		}
+		if (check == 0) {
+			System.out.println("ID is not found : ");
 		}
 
 		return false;
@@ -72,6 +73,7 @@ public class Data {
 
 	// it is delete method for delete some product
 	public static void deleteProduct(int id) {
+		int check = 0;
 		for (int i = 0; i < size; i++) {
 
 			if (parr[i].getId() == id) {
@@ -80,23 +82,27 @@ public class Data {
 				parr[size - 1] = null;
 				size--;
 				System.out.println("Deleted Succesfully...");
-			} else {
-				System.out.println("ID is not found");
+				check++;
 			}
+		}
+		if (check == 0) {
+			System.out.println("ID is not found");
 		}
 	}
 
 //		it is findProductById method for finding the data by using id	
 	public static Product findProducyById(int id) {
-
+		int check = 0;
 		for (int i = 0; i < size; i++) {
 			if (parr[i].getId() == id) {
 				System.out.println("find succsfullly..");
-
+				check++;
 				return parr[i];
-			} else {
-				System.out.println("Product no found : ");
 			}
+			
+		}
+		if (check == 0) {
+			System.out.println("Product not found : ");
 		}
 		return null;
 	}

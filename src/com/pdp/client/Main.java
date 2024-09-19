@@ -1,5 +1,6 @@
 package com.pdp.client;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.pdp.controller.MobileController;
@@ -72,19 +73,26 @@ public class Main {
 			}
 
 			case 3: {
-				System.out.print("Enter product ID to update: ");
-				id = sc.nextInt();
-				mc.updateProduct(id);
-
+				System.out.println("How many Product you want to Update : ");
+				int num = sc.nextInt();
+				for (int i = 1; i <= num; i++) {
+					System.out.print("Enter product ID to update Now : ");
+					id = sc.nextInt();
+					mc.updateProduct(id);
+				}
 				break;
 			}
 
 			case 4: {
 
-				System.out.println("Enter Product Id Which you want to delete");
-				id = sc.nextInt();
-				mc.deleteProduct(id);
+				System.out.println("How many Product you want to delete : ");
+				int num = sc.nextInt();
 
+				for (int i = 1; i <= num; i++) {
+					System.out.println("Enter product ID which is delete now : ");
+					id = sc.nextInt();
+					mc.deleteProduct(id);
+				}
 				break;
 			}
 			case 5: {
